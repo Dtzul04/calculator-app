@@ -1,0 +1,144 @@
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(145deg, #ffffff, #ff7f00); /* Gradient from white to orange */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Calculator container styling */
+.calculator {
+    background-color: #ffffff; /* White background for the calculator */
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
+    padding: 20px;
+    width: 100%; /* Make it take full width of available space */
+    max-width: 350px; /* Max width ensures it won't stretch too much */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Ensure everything is aligned vertically */
+    justify-content: space-between; /* Add space between elements */
+    box-sizing: border-box; /* Ensure padding does not mess up the layout */
+}
+
+/* Display input styling */
+.display input {
+    width: 100%;
+    font-size: 2rem; /* Increased font size for visibility */
+    text-align: right;
+    padding: 20px; /* Increased padding for the input field */
+    border: none;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: #333;
+    margin-bottom: 20px; /* Increased margin between input and buttons */
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box; /* Prevent input from overflowing */
+}
+
+.display input:focus {
+    background-color: #ffffff;
+}
+
+/* Buttons grid layout */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%; /* Ensure buttons take up the full width */
+}
+
+/* Common button styling */
+.buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Number buttons */
+.buttons button.btn-primary {
+    background-color: #4e7dff; /* Blue background for number buttons */
+    color: white;
+}
+
+.buttons button.btn-primary:hover {
+    background-color: #0061cc;
+    transform: scale(1.1);
+}
+
+/* Operator buttons */
+.buttons button.btn-warning {
+    background-color: #ffcc00; /* Yellow background for operator buttons */
+    color: white;
+}
+
+.buttons button.btn-warning:hover {
+    background-color: #e6a900;
+    transform: scale(1.1);
+}
+
+/* Clear button (red) */
+.buttons button.btn-danger {
+    background-color: #ff5c5c; /* Red background for clear button */
+    color: white;
+}
+
+.buttons button.btn-danger:hover {
+    background-color: #e04e4e;
+    transform: scale(1.1);
+}
+
+/* Equals button (green) */
+.buttons button.btn-success {
+    background-color: #28a745; /* Green background for equals button */
+    color: white;
+}
+
+.buttons button.btn-success:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Button press effect */
+.buttons button:active {
+    transform: scale(0.95); 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button focus effect */
+.buttons button:focus {
+    outline: none;
+}
+
+/* Make the layout responsive */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%; /* Take up 90% of the available width on small screens */
+        padding: 15px;
+    }
+
+    .buttons button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .display input {
+        font-size: 1.6rem; /* Reduce font size for small screens */
+    }
+}
+
+
+
+
+ 
