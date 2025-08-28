@@ -1,35 +1,51 @@
 
 // Named function for addition
 function add(a, b) {
-    // TODO: Implement addition
+    return a + b
 }
 
 // Anonymous function for subtraction
 const subtract = function(a, b) {
-    // TODO: Implement subtraction
+    return a - b;
 };
 
 // Arrow function for multiplication
 const multiply = (a, b) => {
-    // TODO: Implement multiplication
+    return a * b;
 };
 
 // Named function for division
 function divide(a, b) {
-    // TODO: Implement division with check for division by zero
+    if (Number(b) === 0) {
+        return "Error";
+    }
+    return a / b
 }
 
 // Calculator object with methods
 const calculator = {
     equation: '',
-    // TODO: assign the add, subtract, multiply and divide functions to obect properties
+    
+    add: function(a, b)  {
+        return a + b;
+    },
+    subtract: function(a, b)  {
+        return a - b;
+    },
+    multiply: (a, b) =>  a * b,
+    divide: function(a, b) {
+        if (b === 0) {
+            return "Error";
+        }
+        return a / b;
+    },
 
     updateEquation: function(value) {
-        // TODO: Implement update equation logic
+        this.equation += value;
         document.getElementById('equation').value = this.equation;
     },
     clearEquation: function() {
-        // TODO: Implement clear equation logic
+        this.equation = "";
         document.getElementById('equation').value = this.equation;
     },
     calculate: function() {
@@ -41,45 +57,45 @@ const calculator = {
 
         switch (operation) {
             case '+':
-                result = // TODO: Implement call to add method using `this`
+                result = this.add(a, b);
                 break;
             case '-':
-                result = // TODO: Implement call to subtract method using `this`
+                result = this.subtract(a, b);
                 break;
             case '*':
-                result = // TODO: Implement call to multiply method using `this`
+                result = this.multiply(a, b);
                 break;
             case '/':
-                result = // TODO: Implement call to divide method using `this`
+                result = this.divide(a, b);
                 break;
             default:
                 result = 'Invalid Operation';
         }
 
         this.updateEquation(` = ${result}`);
+        document.getElementById('equation').value = this.equation;
     }
 };
 
-// Event listeners
+// Event Listeners
 document.querySelectorAll('button[name="input"]').forEach(button => {
     button.addEventListener('click', (event) => {
-        const value = event.target.value;
-        // TODO: Add call to updateEquation and pass value as an argument
+        const value = " " + event.target.value + " ";
+        calculator.updateEquation(value);
     });
 });
 
 document.querySelectorAll('button[name="operation"]').forEach(button => {
     button.addEventListener('click', (event) => {
         const value = event.target.value;
-        // TODO: Add call to updateEquation and pass value as an argument
-        // NOTE: This passes the selected operation as part of a text string
+        calculator.updateEquation(value);
     });
 });
 
 document.querySelector('button[name="calculate"]').addEventListener('click', () => {
-    // TODO: Add call to calculate() result and update display
+    calculator.calculate();
 });
 
 document.querySelector('button[name="clear"]').addEventListener('click', () => {
-    // TODO: Clear the display
+    calculator.clearEquation();
 });
