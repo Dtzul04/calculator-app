@@ -80,14 +80,14 @@ const calculator = {
 // Event Listeners
 document.querySelectorAll('button[name="input"]').forEach(button => {
     button.addEventListener('click', (event) => {
-        const value = " " + event.target.value + " ";
+        const value = event.target.value;
         calculator.updateEquation(value);
     });
 });
 
 document.querySelectorAll('button[name="operation"]').forEach(button => {
     button.addEventListener('click', (event) => {
-        const value = event.target.value;
+        const value = " " + event.target.value + " ";
         calculator.updateEquation(value);
     });
 });
